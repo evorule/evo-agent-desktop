@@ -1,39 +1,45 @@
-﻿# evo-agent-desktop
+# evo-agent-desktop
 
-evo-agent 桌面壳（Windows x64）的二进制发布与自动更新仓。
+Desktop shell for the evorule agent workstation (Windows x64): binary releases and auto-updates.
 
-- 安装包（NSIS）、更新签名与更新清单随 Release 发布；桌面壳内置更新通道按 `latest` 标签拉取 `latest.json` 完成自动升级
-- 源代码与产品文档见主仓：https://github.com/evorule/evo-agent （Gitee 镜像：https://gitee.com/evorule/evo-agent ）
-- 安装包含 AGPL-3.0-or-later 产物，随主仓协议分发
+[![License: AGPL-3.0-or-later][badge-license]][license-link]
 
-## 快速上手（两步开始用）
+**License**: AGPL-3.0-or-later artifacts, distributed under the [main repo](https://github.com/evorule/evo-agent)'s licensing — source code and product docs live there.
 
-> 全程只有两个动作：**装上，贴一把密钥**。
+## Prerequisites
 
-**第 1 步 · 下载安装**：到 [Releases 最新版](https://github.com/evorule/evo-agent-desktop/releases/latest) 下载名字带 `_setup.exe` 的文件，双击安装（国内下载慢可走 [Gitee 同页](https://gitee.com/evorule/evo-agent-desktop/releases)）。若 Windows 提示「已保护你的电脑」：点 **更多信息 → 仍要运行**（安装包暂无代码签名，正常现象）。
+- Windows (x64)
+- The installer is not code-signed yet — expect a SmartScreen prompt on first install
 
-**第 2 步 · 贴一把模型密钥**：首次启动的向导里，粘贴你自己的 MiniMax API Key（到 [platform.minimaxi.com](https://platform.minimaxi.com) 注册 → 控制台「接口密钥」→ 新建并复制）。密钥加密保存在你自己电脑上，只用于连接你选的模型服务。
+## Install (two steps)
 
-完成。桌面图标双击即用；软件自动保持更新；对话与数据全程留在本机。
+1. **Download & install** — grab the `_setup.exe` from the [latest release](https://github.com/evorule/evo-agent-desktop/releases/latest) and double-click it. If Windows says it protected your PC, choose **More info → Run anyway**.
+2. **Paste a model key** — the first-launch wizard asks for your own MiniMax API key (register at [platform.minimaxi.com](https://platform.minimaxi.com) → console → API keys → create and copy). The key is stored encrypted on your own machine and is used only to connect to the model service you choose.
 
-### 常见问题
+Done — double-click the desktop icon to start; the app keeps itself updated; conversations and data stay on your machine.
 
-| 现象 | 处理 |
+## Run & update
+
+| Symptom | Fix |
 |---|---|
-| 杀毒软件报警或删安装包 | 无代码签名所致，将文件加入信任/白名单即可 |
-| 如何升级 | 应用内自动更新（双通道），无需手动下载 |
-| 我的数据在哪 | 全部在本机安装目录，不经任何服务器 |
-| 如何卸载 | 系统「设置 → 应用」标准卸载 |
+| Antivirus flags or deletes the installer | caused by the missing code signature — whitelist the file |
+| How do I upgrade | in-app auto-update (dual channel) — no manual download needed |
+| Where is my data | all in the local install directory, never through a server |
+| How do I uninstall | standard Windows "Settings → Apps" uninstall |
 
----
+Auto-update fetches `latest.json` from the `latest` tag's release assets (installer, update signature, and update manifest ship with each release):
 
-## 维护者信息（发布与更新通道）
+| Endpoint | URL |
+|---|---|
+| Gitee | `https://gitee.com/evorule/evo-agent-desktop/releases/download/latest/latest.json` |
+| GitHub | `https://github.com/evorule/evo-agent-desktop/releases/latest/download/latest.json` |
 
-### 更新通道
+> [!NOTE]
+> Two independent channels serve the same manifest; the listing order mirrors the product's runtime configuration and is reworded whenever that configuration changes.
 
-| 端点 | 形态 |
-|------|------|
-| Gitee（主） | `https://gitee.com/evorule/evo-agent-desktop/releases/download/latest/latest.json` |
-| GitHub（备） | `https://github.com/evorule/evo-agent-desktop/releases/latest/download/latest.json` |
+## License
 
-发布流程：构建机产出三件套（setup.exe / .sig / latest.json）→ 维护 `latest` 标签 Release 附件。
+AGPL-3.0-or-later — the installer ships artifacts licensed under the main repo's licensing ([evorule/evo-agent](https://github.com/evorule/evo-agent)). License documents: [LICENSE](LICENSE), [DUAL_LICENSE.md](DUAL_LICENSE.md), [FREE_COMMERCIAL_LICENSE.md](FREE_COMMERCIAL_LICENSE.md) (free waiver for eligible entities), [COMMERCIAL_LICENSE.md](COMMERCIAL_LICENSE.md), [NOTICE.md](NOTICE.md).
+
+[badge-license]: https://img.shields.io/badge/license-AGPL--3.0--or--later-blue?style=flat-square
+[license-link]: LICENSE
