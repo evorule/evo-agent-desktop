@@ -27,12 +27,12 @@ Done — double-click the desktop icon to start; the app keeps itself updated; c
 | Where is my data | all in the local install directory, never through a server |
 | How do I uninstall | standard Windows "Settings → Apps" uninstall |
 
-Auto-update fetches `latest.json` from the `latest` tag's release assets (installer, update signature, and update manifest ship with each release):
+Auto-update fetches `latest.json` at runtime (installer, update signature, and update manifest ship with each release):
 
-| Endpoint | URL |
-|---|---|
-| Gitee | `https://gitee.com/evorule/evo-agent-desktop/releases/download/latest/latest.json` |
-| GitHub | `https://github.com/evorule/evo-agent-desktop/releases/latest/download/latest.json` |
+| Channel | Endpoint | Served from |
+|---|---|---|
+| Gitee | `https://gitee.com/evorule/evo-agent-desktop/releases/download/latest/latest.json` | the rolling `latest` tag's release assets |
+| GitHub | `https://github.com/evorule/evo-agent-desktop/releases/latest/download/latest.json` | the latest versioned release (`/releases/latest/`) |
 
 > [!NOTE]
 > Two independent channels serve the same manifest; the listing order mirrors the product's runtime configuration and is reworded whenever that configuration changes.
