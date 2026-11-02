@@ -31,7 +31,7 @@ Auto-update fetches `latest.json` at runtime (installer, update signature, and u
 
 | Channel | Endpoint | Served from |
 |---|---|---|
-| Gitee | `https://gitee.com/evorule/evo-agent-desktop/releases/download/latest/latest.json` | the rolling `latest` tag's release assets |
+| GitHub | `https://github.com/evorule/evo-agent-desktop/releases/download/latest/latest.json` | the rolling `latest` tag's release assets |
 | GitHub | `https://github.com/evorule/evo-agent-desktop/releases/latest/download/latest.json` | the latest versioned release (`/releases/latest/`) |
 
 > [!NOTE]
